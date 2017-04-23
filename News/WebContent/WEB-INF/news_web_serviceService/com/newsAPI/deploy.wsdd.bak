@@ -1,0 +1,29 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from news_web_serviceService WSDL service -->
+
+  <service name="news_web_service" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://newsAPI.com"/>
+      <parameter name="wsdlServiceElement" value="news_web_serviceService"/>
+      <parameter name="schemaQualified" value="http://newsAPI.com"/>
+      <parameter name="wsdlServicePort" value="news_web_service"/>
+      <parameter name="className" value="com.newsAPI.News_web_serviceSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="news_web_service"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="requestData" qname="operNS:requestData" xmlns:operNS="http://newsAPI.com" returnQName="retNS:requestDataReturn" xmlns:retNS="http://newsAPI.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:SingerName" xmlns:pns="http://newsAPI.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="requestData"/>
+
+  </service>
+</deployment>

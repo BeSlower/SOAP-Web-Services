@@ -1,0 +1,41 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from user_web_serviceService WSDL service -->
+
+  <service name="user_web_service" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://userInfo.com"/>
+      <parameter name="wsdlServiceElement" value="user_web_serviceService"/>
+      <parameter name="schemaQualified" value="http://userInfo.com"/>
+      <parameter name="wsdlServicePort" value="user_web_service"/>
+      <parameter name="className" value="com.userInfo.User_web_serviceSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="user_web_service"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="add_Singername" qname="operNS:add_Singername" xmlns:operNS="http://userInfo.com" returnQName="retNS:add_SingernameReturn" xmlns:retNS="http://userInfo.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:username" xmlns:pns="http://userInfo.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:singername" xmlns:pns="http://userInfo.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="valid_User" qname="operNS:valid_User" xmlns:operNS="http://userInfo.com" returnQName="retNS:valid_UserReturn" xmlns:retNS="http://userInfo.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:username" xmlns:pns="http://userInfo.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:password" xmlns:pns="http://userInfo.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="add_User" qname="operNS:add_User" xmlns:operNS="http://userInfo.com" returnQName="retNS:add_UserReturn" xmlns:retNS="http://userInfo.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:username" xmlns:pns="http://userInfo.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:password" xmlns:pns="http://userInfo.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="favorite_Singername" qname="operNS:favorite_Singername" xmlns:operNS="http://userInfo.com" returnQName="retNS:favorite_SingernameReturn" xmlns:retNS="http://userInfo.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:username" xmlns:pns="http://userInfo.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="add_User valid_User add_Singername favorite_Singername"/>
+
+  </service>
+</deployment>
