@@ -1,5 +1,7 @@
 # SOAP-Web-Services
 I implemented a web service about singer related information retrieval.
+* Three SOAP web services
+* One BPEL process
 
 ## User Information Web Service
 * Maintain two tables: login table and favorite_singer table;
