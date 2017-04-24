@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://userInfo.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://userInfo.com" xmlns:intf="http://userInfo.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://userInfo.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="favorite_Singername">
+    <complexType>
+     <sequence>
+      <element name="username" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="favorite_SingernameResponse">
+    <complexType>
+     <sequence>
+      <element name="favorite_SingernameReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="add_User">
+    <complexType>
+     <sequence>
+      <element name="username" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="add_UserResponse">
+    <complexType>
+     <sequence>
+      <element name="add_UserReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="add_Singername">
+    <complexType>
+     <sequence>
+      <element name="username" type="xsd:string"/>
+      <element name="singername" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="add_SingernameResponse">
+    <complexType>
+     <sequence>
+      <element name="add_SingernameReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="valid_User">
+    <complexType>
+     <sequence>
+      <element name="username" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="valid_UserResponse">
+    <complexType>
+     <sequence>
+      <element name="valid_UserReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="add_UserResponse">
+
+      <wsdl:part element="impl:add_UserResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="add_SingernameResponse">
+
+      <wsdl:part element="impl:add_SingernameResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="add_SingernameRequest">
+
+      <wsdl:part element="impl:add_Singername" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="favorite_SingernameResponse">
+
+      <wsdl:part element="impl:favorite_SingernameResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="valid_UserRequest">
+
+      <wsdl:part element="impl:valid_User" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="favorite_SingernameRequest">
+
+      <wsdl:part element="impl:favorite_Singername" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="add_UserRequest">
+
+      <wsdl:part element="impl:add_User" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="valid_UserResponse">
+
+      <wsdl:part element="impl:valid_UserResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="user_web_service">
+
+      <wsdl:operation name="favorite_Singername">
+
+         <wsdl:input message="impl:favorite_SingernameRequest" name="favorite_SingernameRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:favorite_SingernameResponse" name="favorite_SingernameResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="add_User">
+
+         <wsdl:input message="impl:add_UserRequest" name="add_UserRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:add_UserResponse" name="add_UserResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="add_Singername">
+
+         <wsdl:input message="impl:add_SingernameRequest" name="add_SingernameRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:add_SingernameResponse" name="add_SingernameResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="valid_User">
+
+         <wsdl:input message="impl:valid_UserRequest" name="valid_UserRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:valid_UserResponse" name="valid_UserResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="user_web_serviceSoapBinding" type="impl:user_web_service">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="favorite_Singername">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="favorite_SingernameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="favorite_SingernameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="add_User">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="add_UserRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="add_UserResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="add_Singername">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="add_SingernameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="add_SingernameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="valid_User">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="valid_UserRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="valid_UserResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="user_web_serviceService">
+
+      <wsdl:port binding="impl:user_web_serviceSoapBinding" name="user_web_service">
+
+         <wsdlsoap:address location="http://localhost:8082/User_Info/services/user_web_service"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

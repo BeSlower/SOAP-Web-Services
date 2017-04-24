@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:caller="http://MyTest/caller" xmlns:itunesAPI.com="http://itunesAPI.com" xmlns:newsAPI.com="http://newsAPI.com" xmlns:userInfo.com="http://userInfo.com">
+  <process name="caller:caller">
+    <active>true</active>
+    <retired>false</retired>
+    <process-events generate="all"/>
+    <provide partnerLink="client">
+      <service name="caller:callerService" port="callerPort"/>
+    </provide>
+    <invoke partnerLink="UserInfoLink">
+      <service name="userInfo.com:user_web_serviceService" port="user_web_service"/>
+    </invoke>
+    <invoke partnerLink="MusicLink">
+      <service name="itunesAPI.com:music_web_serviceService" port="music_web_service"/>
+    </invoke>
+    <invoke partnerLink="NewsLink">
+      <service name="newsAPI.com:news_web_serviceService" port="news_web_service"/>
+    </invoke>
+  </process>
+</deploy>
